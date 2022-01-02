@@ -1,37 +1,68 @@
-print("Welcome to Amit ATM System")
-print("Select the Option \n\n")
-print("1. Deposit \t","2. Cash Withdrow \n")
+# An ATM System
+print("--------------------------------------------------------------------------")
+print("-------------------------Wel Come to Our ATM System-----------------------")
+print("--------------------------------------------------------------------------")
+print("====Acount Opening Details====")
 
-print("3. Show your Pin \t","4. User Details \n\n")
+Balance = 3000 # By default Amount
 
-global a
+print("-----Select Language-----")
+print(" 1. For English\n", "2. For हिंदी")
 
-a = 3000# By Defual Amount
-data = int(input())
-pin = 1997
-if data == 1:
-    p_1 = int(input("Enter your pin.- "))
-    if p_1 == 1997:
-        a_1 = int(input("Enter the amount you Dipsite.- "))
-        a_2 = a + a_1
-        print(f"Your Diposite Amount is {a_1}")
-        print(f"Your current Balance is {a_2}")
-        print("Thanyou for using ATM machine\n")
-        if data == 2:
-            p_2 = int(input("Enter your pin.- "))
-            if p_2 == 1997:
-                b = int(input("Enter Amount.- "))
-                b_1 = a - b
-                print(f"Your Cash Amount is {b}")
-                print(f"Your current Balance is {b_1}")
-                print("Thanyou for using ATM machine\n")
-elif data == 3:
-    print(f"your pin is {pin}")
-elif data == 4:
-    print("Your Name is Amit\n","your acount Balance is {a}\n","Your ATM pin is {pin}")
-                    
-else :
-    print("Pin is Worngh try Again")  
+Language = int(input("Chose any One ---"))
+if Language == 1:
+    pin = input("=========Enter Your 4 Digit Pin============")
+    if len(pin) == 4:
+        print("============Select Option============")
+        print(" 1. For Statment\t", "2. For Cash Withdraw\n", "3. For Cash Deposit\t","4 For Pin Change\n") 
+        print("----------Chose any One Option---------")
+        a = int(input("Enter Here---"))
+        if a == 1:
+            print(f"Your Balance is --{Balance} Rupees.")
+        elif a == 2:
+            b = int(input("Enter Withdraw Amount---"))
+            due = (Balance - b)
+            print(f"Your Bank Balance is --{due}")    
+        elif a == 3:
+            c = int(input("Enter Deposite Amount---"))
+            T = (Balance + c)
+        elif a == 4:
+            c_pin = input("Enter Your Old Pin---")
+            if pin == c_pin:
+                i = int(input("Enter New Pin---"))
+                j = int(input("Enter Confairm Pin---")) 
+                if i==j:
+                    print("Pin Save Successfully")
+            else:
+                print("Your Pin Not Matched! Please Enter Again.")           
 
-          
+elif Language == 2:
+    pin = input("=========अपना 4 डिजिट का पिन डाले============")
+    if len(pin) == 4:
+        print("============निचे दिए गये कोई एक विकल्प चुने============")
+        print(" 1. खाते की जानकारी के लिए 1 दबाये\t", "2. पेसे निकलने के लिए 2 दबाये\n", "3. पेसे जमा करने के लिए 3 दबाये\t","4. पिन बदलने के लिए 4 दबाये\n") 
+        print("----------कोई एक विकल्प चुने---------")
+        a = int(input("यह डाले---"))
+        if a == 1:
+            print(f"आपके खाते का बैलेंस है---{Balance} रुपे.")
+        elif a == 2:
+            b = int(input("पेसे निकलने के पेसे डाले---"))
+            due = (Balance - b)
+            print(f"आपके खाते में बचे हुए पेसे है--{due}")    
+        elif a == 3:
+            c = int(input("जमा करने वाले पेसे डाले---"))
+            T = (Balance + c)
+            print("आपके खाते में पेसे जमा हो चुके है अब आपके खाते का बैलेंस है--{T}")
+        elif a == 4:
+            c_pin = input("अपना पुराने पिन डाले---")
+            if pin == c_pin:
+                i = int(input("नया पिन डाले---"))
+                j = int(input("दुबारा पिन डाले ओर सेव करे---")) 
+                if i==j:
+                    print("आपका नया पिन सेव कर दिया गया है")
+            else:
+                print("आपका पिन मेल नही खा रहा है कृपया दुबारा डाले")
 
+else:
+    print("Please Select a Vailid Option")            
+      
